@@ -20,7 +20,7 @@ PrintArray(array, "Созданный массив: ");
 int method = GetMethodFromUser();
 
 FindNumberByIndexes(array, method);
-// FindIndexesByNumber(array, method);
+FindIndexesByNumber(array, method);
 
 ///////////////////////////////////////////////////////////
 int[,] GetArray(int m, int n, int minValue, int maxValue) 
@@ -76,4 +76,28 @@ void FindNumberByIndexes(int[,] inArray, int mode)
         return;
     }
     Console.WriteLine($"Искомый элемент: {inArray[i,j]}");
+}
+
+void FindIndexesByNumber(int[,] inArray, int mode) 
+{
+    if (mode != 2) return;
+    Console.Write("Введите искомое число: ");
+    int number = int.Parse(Console.ReadLine() ?? "");
+    bool numberIsTrue = false;
+    for (int i = 0; i < inArray.GetLength(0); i++) 
+    {
+        for (int j = 0; j < inArray.GetLength(1); j++)
+        {
+            if (number == inArray[i,j]) 
+            {
+            Console.WriteLine($"Заданное число {number} имеет координаты [{i}, {j}]");
+            numberIsTrue = true;
+            }
+        }
+    }
+    while (numberIsTrue == false) 
+    {
+        Console.WriteLine($"{number} -> такого числа в массиве нет");
+        break;
+    }
 }
