@@ -1,4 +1,4 @@
-// Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+﻿// Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 // Например, задан массив:
 // 1 4 7 2
 // 5 9 2 3
@@ -46,17 +46,17 @@ void PrintArray(int[,] inArray, string message)
     }
 }
 
-FindColumnsAverage(int [,] inArray) 
+void FindColumnsAverage(int [,] inArray) 
 {
-    int sum = 0;
     Console.Write("Среднее арифметическое каждого столбца: ");
     for (int j = 0; j < inArray.GetLength(1); j++) 
     {
+        double sum = 0.0;
         for (int i = 0; i < inArray.GetLength(0); i++) 
         {
-            sum += inArray[i,j];
-            (double) avg = sum / inArray.GetLength(0);
-            Console.Write($"{avg} ")
+            sum += inArray[i,j];         
         }
+        double avg = sum / inArray.GetLength(0);
+        Console.Write($"{avg} ");
     }  
 }
